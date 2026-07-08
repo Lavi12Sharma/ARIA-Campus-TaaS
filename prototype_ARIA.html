@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIA Marketing Portal - MVP Prototype</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Interactive state handlers for the working type layout
+        function toggleBiddingModal(projectName, clientName, category) {
+            const modal = document.getElementById('biddingModal');
+            if (modal.classList.contains('hidden')) {
+                document.getElementById('modalProjectTitle').innerText = projectName;
+                document.getElementById('modalClientName').innerText = clientName;
+                document.getElementById('modalCategory').innerText = category;
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function handleBidSubmission(event) {
+            event.preventDefault();
+            alert('🚀 Bid Submitted Successfully!\nYour Cross-Functional Team layout has been registered and initialized into the Milestone Track.');
+            toggleBiddingModal();
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen font-sans">
+
+    <!-- Header / Navbar -->
+    <header class="bg-blue-800 text-white shadow-md px-6 py-4 flex justify-between items-center">
+        <div>
+            <h1 class="text-xl font-bold tracking-wide">Millionminds Operational Platform</h1>
+            <p class="text-xs text-blue-200">ARIA Marketing Services Module (Campus TaaS Engine Extension)</p>
+        </div>
+        <span class="bg-blue-700 px-3 py-1 rounded-full text-xs font-semibold border border-blue-500">
+            Lead Developer Mode
+        </span>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Section: Top Summary -->
+        <div class="bg-white p-6 rounded-lg shadow-sm mb-8 border-l-4 border-emerald-500">
+            <h2 class="text-lg font-bold text-gray-800 mb-2">ARIA Operational Dashboard Engine</h2>
+            <p class="text-sm text-gray-600 leading-relaxed">
+                This system tracks live project pipelines mapped into 8 core product catalogs including Digital Marketing, Search Marketing (SEO/SEM), Social Media, Influencer Management, and Data-Driven ICP Analytics.
+            </p>
+        </div>
+
+        <!-- Section: Marketplace Board -->
+        <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+            📋 Active Bidding Board <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full font-normal">2 Gigs Available</span>
+        </h2>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Project Card 1 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 flex flex-col justify-between hover:shadow-md transition">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-3">
+                        <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-1 rounded">Tactical (Short-Term Micro Gig)</span>
+                        <span class="text-sm font-medium text-gray-500">1 Month</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">Social Media Campaign for New Gold Loan Launch</h3>
+                    <p class="text-xs text-blue-600 font-medium mb-3">Client: Bajaj Finance Digital Division</p>
+                    <p class="text-sm text-gray-600 mb-4 line-clamp-3">
+                        Requirement checklist parameters: Need 10 core creatives, viral reels scripts execution, and micro-influencer tie-ups mapping.
+                    </p>
+                </div>
+                <button onclick="toggleBiddingModal('Social Media Campaign for New Gold Loan Launch', 'Bajaj Finance Digital Division', 'Social Media Management')" 
+                        class="w-full bg-blue-600 text-white font-medium py-2.5 rounded-lg text-sm hover:bg-blue-700 transition shadow-sm">
+                    Bid Now
+                </button>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 flex flex-col justify-between hover:shadow-md transition">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-3">
+                        <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-1 rounded">Consultancy & Strategic Advisory</span>
+                        <span class="text-sm font-medium text-gray-500">3 Months</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">Data-Driven Customer Profiling & Local SEO Audit</h3>
+                    <p class="text-xs text-blue-600 font-medium mb-3">Client: Muthoot Fintech Labs</p>
+                    <p class="text-sm text-gray-600 mb-4 line-clamp-3">
+                        Mapping Ideal Customer Profile (ICP) vectors for Tier-2 cities, designing local search strategies, and implementing comprehensive analytics solutions.
+                    </p>
+                </div>
+                <button onclick="toggleBiddingModal('Data-Driven Customer Profiling & Local SEO Audit', 'Muthoot Fintech Labs', 'Customer Profiling & Analytics')" 
+                        class="w-full bg-blue-600 text-white font-medium py-2.5 rounded-lg text-sm hover:bg-blue-700 transition shadow-sm">
+                    Bid Now
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Interactive Bidding Modal Component Overlay -->
+    <div id="biddingModal" class="fixed inset-0 bg-gray-900 bg-opacity-70 flex justify-center items-center z-50 hidden">
+        <div class="bg-white p-6 rounded-xl max-w-md w-full shadow-2xl border-t-4 border-blue-600 m-4">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h3 class="text-lg font-bold text-gray-900">Cross-Functional Team Pitch</h3>
+                    <p class="text-xs text-gray-500">System Validation: ROI Driven Delivery Loop</p>
+                </div>
+                <button onclick="toggleBiddingModal()" class="text-gray-400 hover:text-gray-600 text-xl font-bold">&times;</button>
+            </div>
+
+            <!-- Dynamic Info Injected Here -->
+            <div class="bg-gray-50 p-3 rounded-lg mb-4 border text-xs text-gray-600 space-y-1">
+                <p><strong>Project:</strong> <span id="modalProjectTitle"></span></p>
+                <p><strong>Client:</strong> <span id="modalClientName"></span></p>
+                <p><strong>Category Focus:</strong> <span id="modalCategory"></span></p>
+            </div>
+            
+            <form onsubmit="handleBidSubmission(event)">
+                <!-- Cross-Functional Selection Schema -->
+                <div class="mb-4">
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Assemble Multi-Disciplinary Domain Pool:</label>
+                    <div class="space-y-2 text-sm bg-gray-50 p-3 rounded-lg border">
+                        <label class="flex items-center text-gray-700"><input type="checkbox" checked disabled class="mr-2 rounded text-blue-600"> MBA / BMS Lead (Account Strategy)</label>
+                        <label class="flex items-center text-gray-700"><input type="checkbox" checked class="mr-2 rounded text-blue-600"> BMM Expert (Content & Media Connect)</label>
+                        <label class="flex items-center text-gray-700"><input type="checkbox" class="mr-2 rounded text-blue-600"> BCA / MCA Analytics (Technical Dev/SEO)</label>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Execution & Pitch Strategy:</label>
+                    <textarea required class="w-full p-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3" placeholder="Detail how your domain mix guarantees ROI tracking..."></textarea>
+                </div>
+
+                <div class="flex justify-end space-x-2">
+                    <button type="button" onclick="toggleBiddingModal()" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200">Cancel</button>
+                    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 shadow-sm">Submit Project Bid</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
